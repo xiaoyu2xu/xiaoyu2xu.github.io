@@ -1,4 +1,4 @@
-{% macro render(post, is_index, post_extra_class) %}
+{% macro render(post, is_index, is_pv, post_extra_class) %}
 
   {% set headlessPost = Array.prototype.indexOf.call(['quote', 'picture'], post.type) > -1 %}
 
@@ -9,7 +9,7 @@
   {% if post.sticky > 0 %}
     {% set post_class = post_class + ' ' + 'post-sticky' %}
   {% endif %}
-
+  
   <article class="{{ post_class }}" itemscope itemtype="http://schema.org/Article">
   {##################}
   {### POST BLOCK ###}
@@ -219,6 +219,11 @@
             <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>{{ theme.busuanzi_count.page_pv_footer }}
             </span>
           {% endif %}
+		  
+		  {% if is_pv %}
+			<span class="post-meta-divider">|</span>
+			<span id="busuanzi_value_page_pv"></span>次阅读
+		  {% endif %}
 
           {% if theme.post_wordcount.wordcount or theme.post_wordcount.min2read %}
             <div class="post-wordcount">
