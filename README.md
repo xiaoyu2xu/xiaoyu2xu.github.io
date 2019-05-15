@@ -1,2 +1,1 @@
-# xiaoyu2xu
-Welcome to my blog
+xiaoyu2xu.github.io

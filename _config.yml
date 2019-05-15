@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: "漫天话语"
+title: '漫天话语'
 subtitle: 
 description: 
 keywords: 
@@ -87,3 +87,9 @@ deploy:
   type: git
   repo: git@github.com:xiaoyu2xu/xiaoyu2xu.github.io.git
   branch: master
+  
+# admin:
+#   username: 'zhangxiaoyu'
+#   password_hash: 'Admin01!'
+#   secret: 'hey xiaoyu'
+#   deployCommand: './admin_script/hexo-generate.sh'
