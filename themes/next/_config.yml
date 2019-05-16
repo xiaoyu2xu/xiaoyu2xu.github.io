@@ -95,11 +95,11 @@ menu:
   home: / || home
   about: /about/ || user
   tags: /tags/ || tags
-  #categories: /categories/ || th
+  categories: /categories/ || th
   archives: /archives/ || archive
-  #schedule: /schedule/ || calendar
-  #sitemap: /sitemap.xml || sitemap
-  #commonweal: /404/ || heartbeat
+  schedule: /schedule/ || calendar
+  sitemap: /sitemap.xml || sitemap
+  commonweal: /404/ || heartbeat
 
 # Enable/Disable menu icons.
 menu_icons:
@@ -774,7 +774,7 @@ vendors:
 
   # Internal version: 1.0.0
   # https://github.com/hustcc/canvas-nest.js
-  canvas_nest: 
+  canvas_nest: https://github.com/hustcc/canvas-nest.js
 
   # three
   three:
@@ -785,23 +785,23 @@ vendors:
 
   # three_waves
   # https://github.com/jjandxa/canvas_lines
-  canvas_lines:
+  canvas_lines: https://github.com/jjandxa/canvas_lines
 
   # three_waves
   # https://github.com/jjandxa/canvas_sphere
-  canvas_sphere:
+  canvas_sphere: https://github.com/jjandxa/canvas_sphere
 
   # Internal version: 1.0.0
   # https://github.com/zproo/canvas-ribbon
-  canvas_ribbon:
+  canvas_ribbon: https://github.com/zproo/canvas-ribbon
 
   # Internal version: 3.3.0
   # https://github.com/ethantw/Han
-  han:
+  han: https://github.com/ethantw/Han
 
   # needMoreShare2
   # https://github.com/revir/need-more-share2
-  needMoreShare2:
+  needMoreShare2: https://github.com/revir/need-more-share2
 
 
 # Assets
