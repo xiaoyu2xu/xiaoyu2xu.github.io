@@ -5,7 +5,7 @@
 # Site
 title: '漫天话语'
 subtitle: 
-description: 
+description: 小语的博客
 keywords: 
 author: xiaoyu
 language: zh-Hans
@@ -88,8 +88,12 @@ deploy:
   repo: git@github.com:xiaoyu2xu/xiaoyu2xu.github.io.git
   branch: master
   
-#admin:
-#  username: 'zhangxiaoyu'
-#  password_hash: 'Admin01!'
-#  secret: 'hey xiaoyu'
-#  deployCommand: './admin_script/hexo-generate.sh'
+# hexo-admin authentification
+admin:
+  username: zhangxiaoyu
+  password_hash: $2a$10$w0HhjnODLdIN0a3Fm/HMpeOqw53i9kjWY0/j1LjK3jqnnjAUwK4d6
+  secret: xiaoyu2145
+
+# 文章末尾添加“本文结束”标记
+passage_end_tag:
+enabled: true
