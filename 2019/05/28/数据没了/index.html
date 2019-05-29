@@ -81,16 +81,21 @@
 
 
 
-<meta name="description" content="小语的博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="漫天话语">
-<meta property="og:url" content="http://xiaoyu2xu.github.io/index.html">
+<meta name="description" content="数据丢失——记一次生产事故很久没更新，因为最近人员流动大，导致工作量多了很多，其实一直都有考虑写些什么，这次聊聊以前遇到的事故吧。 过程聊聊俩年前发生的生产事故吧，虽然时间比较久远，不过也给我长了很多经验。当时业务处于扩张期，以前用户通讯录、短信、通话记录相关的数据都存储在mongo中，因为满足不了后续各种乱七八糟的海量运算的需求，所以在业务的压力下，要将这些数据落到HBase中去做一些复杂的业务">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据没了">
+<meta property="og:url" content="http://xiaoyu2xu.github.io/2019/05/28/数据没了/index.html">
 <meta property="og:site_name" content="漫天话语">
-<meta property="og:description" content="小语的博客">
+<meta property="og:description" content="数据丢失——记一次生产事故很久没更新，因为最近人员流动大，导致工作量多了很多，其实一直都有考虑写些什么，这次聊聊以前遇到的事故吧。 过程聊聊俩年前发生的生产事故吧，虽然时间比较久远，不过也给我长了很多经验。当时业务处于扩张期，以前用户通讯录、短信、通话记录相关的数据都存储在mongo中，因为满足不了后续各种乱七八糟的海量运算的需求，所以在业务的压力下，要将这些数据落到HBase中去做一些复杂的业务">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://xiaoyu2xu.github.io/2019/05/28/数据没了/%5Cimages%5Cpasted-1.png%5C">
+<meta property="og:image" content="http://xiaoyu2xu.github.io/2019/05/28/数据没了/%5Cimages%5Cpasted-2.png%5C">
+<meta property="og:image" content="http://xiaoyu2xu.github.io/2019/05/28/数据没了/%5Cimages%5Cpasted-3.png%5C">
+<meta property="og:updated_time" content="2019-05-29T01:53:00.817Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="漫天话语">
-<meta name="twitter:description" content="小语的博客">
+<meta name="twitter:title" content="数据没了">
+<meta name="twitter:description" content="数据丢失——记一次生产事故很久没更新，因为最近人员流动大，导致工作量多了很多，其实一直都有考虑写些什么，这次聊聊以前遇到的事故吧。 过程聊聊俩年前发生的生产事故吧，虽然时间比较久远，不过也给我长了很多经验。当时业务处于扩张期，以前用户通讯录、短信、通话记录相关的数据都存储在mongo中，因为满足不了后续各种乱七八糟的海量运算的需求，所以在业务的压力下，要将这些数据落到HBase中去做一些复杂的业务">
+<meta name="twitter:image" content="http://xiaoyu2xu.github.io/2019/05/28/数据没了/%5Cimages%5Cpasted-1.png%5C">
 
 
 
@@ -120,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://xiaoyu2xu.github.io/">
+  <link rel="canonical" href="http://xiaoyu2xu.github.io/2019/05/28/数据没了/">
 
 
 
 
 
-  <title>漫天话语</title>
+  <title>数据没了 | 漫天话语</title>
   
 
 
@@ -145,8 +150,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -249,9 +253,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -281,9 +285,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/28/数据没了/" itemprop="url">数据没了</a></h1>
+          <h1 class="post-title" itemprop="name headline">数据没了</h1>
         
 
         <div class="post-meta">
@@ -327,6 +329,9 @@
           
 		  
 		  
+			<span class="post-meta-divider">|</span>
+			<span id="busuanzi_value_page_pv"></span>次阅读
+		  
 
           
 
@@ -345,17 +350,17 @@
       
 
       
-        
-          <h5 id="数据丢失——记一次生产事故"><a href="#数据丢失——记一次生产事故" class="headerlink" title="数据丢失——记一次生产事故"></a>数据丢失——记一次生产事故</h5><p>很久没更新，因为最近人员流动大，导致工作量多了很多，其实一直都有考虑写些什么，这次聊聊以前遇到的事故吧。</p>
+        <h5 id="数据丢失——记一次生产事故"><a href="#数据丢失——记一次生产事故" class="headerlink" title="数据丢失——记一次生产事故"></a>数据丢失——记一次生产事故</h5><p>很久没更新，因为最近人员流动大，导致工作量多了很多，其实一直都有考虑写些什么，这次聊聊以前遇到的事故吧。</p>
 <h5 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h5><p>聊聊俩年前发生的生产事故吧，虽然时间比较久远，不过也给我长了很多经验。当时业务处于扩张期，以前用户通讯录、短信、通话记录相关的数据都存储在mongo中，因为满足不了后续各种乱七八糟的海量运算的需求，所以在业务的压力下，要将这些数据落到HBase中去做一些复杂的业务运算，当时原有的改造前的业务场景模型如下：<br><img src="%5Cimages%5Cpasted-1.png%5C" alt="upload successful"></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/05/28/数据没了/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+<a id="more"></a>
+<p>改造后的业务场景模型如下：</p>
+<p><img src="%5Cimages%5Cpasted-2.png%5C" alt="upload successful"></p>
+<p>其实从系统设计上来看问题不大，但是上线就出问题了，由于<span style="color: #FF1744; font-weight: bold;">线上压力过大导致kafka发生阻塞</span>，大部分数据因为过期而丢失了，所以原本线上正常的mongo也受到牵连。原有对这些数据有操作的服务也因此受到了影响。问题持续了12天才发现数据丢失。</p>
+<h5 id="反思"><a href="#反思" class="headerlink" title="反思"></a>反思</h5><p>事故后我们进行了复盘，改造时都依赖于kafka这块消费考虑的有失欠缺，因为这块逻辑都是新开发的，而且没正确评估服务器的压力，如果消费出现问题，那么之前用的功能和新上的都会出现问题。如果原先的逻辑保持不变（如下图），新起一个kafka直接消费落hbase，即使新上线的逻辑出问题，也能保证原有功能正常运行。所以<span style="color: #FF1744; font-weight: bold;">编码之前还是要考虑清楚，多想想异常情况</span>。</p>
+<p><img src="%5Cimages%5Cpasted-3.png%5C" alt="upload successful"></p>
+<p>当然了，也从侧面反馈出<span style="color: #FF1744; font-weight: bold;">数据监控的不足以及内部沟通的不畅通</span>，后续我们在监控方面做了各个指标的加强，以及和业务部门沟通的及时性，其实数据部门老早都发现有这个问题了， 但是因为沟通的滞后性，导致问题发生半个月之后才发现问题。</p>
+<p>虽然说从技术角度来看是一个很小的问题，其实就是实现的方式，然后场景的评估不到位，不过也反馈出来了很多问题，所以说发生事故不可怕，可怕的是事故反应的<span style="color: #FF1744; font-weight: bold;">时效性、主动性</span>。积极的对待事故，避免更多的事故，使系统更完善，个人和团队更好的提升，毕竟在事故下的成长可是书本上学不来的。</p>
+
       
     </div>
     
@@ -363,6 +368,13 @@
     
 	<div>
 	  
+	    <div>
+
+    <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束,感谢您的阅读,欢迎留言讨论-------------</div>
+
+</div>
+
+      
 	</div>
 
     
@@ -375,152 +387,28 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-  
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xiaoyu2xu.github.io/2019/05/15/研发到leader感悟/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="xiaoyu">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="漫天话语">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/15/研发到leader感悟/" itemprop="url">研发到leader感悟</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-15T17:04:00+08:00">
-                2019-05-15
-              </time>
+              <a href="/2019/05/15/研发到leader感悟/" rel="next" title="研发到leader感悟">
+                <i class="fa fa-chevron-left"></i> 研发到leader感悟
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/05/15/研发到leader感悟/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/15/研发到leader感悟/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-		  
-		  
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <p>研发能力提升到一定程度之后会发现遇到瓶颈，面临两个选择，一种是继续做技术，深入对技术的研究以及拓宽技术的维度，这个就是我们熟知的架构师；另外一种就是带领团队继续开拓新的业务，培养新人成长，维护团队稳定，这个就是我们熟知的leader，我主要分享下我从研发到leader踩得坑和感悟。</p>
-<p>先看看研发和leader主要职责，研发是去完成项目上的技术实现，解决项目过程中遇到的问题，更多的是把自己负责的事做好，类似于手术中的主刀医生，他负责把手术做好，完成后就开始着手准备下一个，而且每次做完手术之后会很有成就感；而leader的职责更倾向于带领兄弟们一起做事，使团队做到有条不紊，及时应对各种外来突发状况，做好协调工作，带领团队共同前进，实时关注团队成员的精神状态，保证工作的顺利开展，及时发现潜在风险和及时排除，更类似于球赛场下的教练角色以及场上的组织者，更好的和团队一起在比赛中获取胜利。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/05/15/研发到leader感悟/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-	<div>
-	  
-	</div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -530,10 +418,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -541,6 +430,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -561,8 +457,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -611,6 +516,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#数据丢失——记一次生产事故"><span class="nav-number">1.</span> <span class="nav-text">数据丢失——记一次生产事故</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#过程"><span class="nav-number">2.</span> <span class="nav-text">过程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#反思"><span class="nav-number">3.</span> <span class="nav-text">反思</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -758,6 +679,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

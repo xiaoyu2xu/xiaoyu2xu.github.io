@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiaoyu2xu.github.io/"/>
-  <updated>2019-05-16T02:26:00.982Z</updated>
+  <updated>2019-05-29T01:53:00.817Z</updated>
   <id>http://xiaoyu2xu.github.io/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>数据没了</title>
+    <link href="http://xiaoyu2xu.github.io/2019/05/28/%E6%95%B0%E6%8D%AE%E6%B2%A1%E4%BA%86/"/>
+    <id>http://xiaoyu2xu.github.io/2019/05/28/数据没了/</id>
+    <published>2019-05-28T10:20:00.000Z</published>
+    <updated>2019-05-29T01:53:00.817Z</updated>
+    
+    <content type="html"><![CDATA[<h5 id="数据丢失——记一次生产事故"><a href="#数据丢失——记一次生产事故" class="headerlink" title="数据丢失——记一次生产事故"></a>数据丢失——记一次生产事故</h5><p>很久没更新，因为最近人员流动大，导致工作量多了很多，其实一直都有考虑写些什么，这次聊聊以前遇到的事故吧。</p><h5 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h5><p>聊聊俩年前发生的生产事故吧，虽然时间比较久远，不过也给我长了很多经验。当时业务处于扩张期，以前用户通讯录、短信、通话记录相关的数据都存储在mongo中，因为满足不了后续各种乱七八糟的海量运算的需求，所以在业务的压力下，要将这些数据落到HBase中去做一些复杂的业务运算，当时原有的改造前的业务场景模型如下：<br><img src="%5Cimages%5Cpasted-1.png%5C" alt="upload successful"></p><a id="more"></a><p>改造后的业务场景模型如下：</p><p><img src="%5Cimages%5Cpasted-2.png%5C" alt="upload successful"></p><p>其实从系统设计上来看问题不大，但是上线就出问题了，由于<span style="color: #FF1744; font-weight: bold;">线上压力过大导致kafka发生阻塞</span>，大部分数据因为过期而丢失了，所以原本线上正常的mongo也受到牵连。原有对这些数据有操作的服务也因此受到了影响。问题持续了12天才发现数据丢失。</p><h5 id="反思"><a href="#反思" class="headerlink" title="反思"></a>反思</h5><p>事故后我们进行了复盘，改造时都依赖于kafka这块消费考虑的有失欠缺，因为这块逻辑都是新开发的，而且没正确评估服务器的压力，如果消费出现问题，那么之前用的功能和新上的都会出现问题。如果原先的逻辑保持不变（如下图），新起一个kafka直接消费落hbase，即使新上线的逻辑出问题，也能保证原有功能正常运行。所以<span style="color: #FF1744; font-weight: bold;">编码之前还是要考虑清楚，多想想异常情况</span>。</p><p><img src="%5Cimages%5Cpasted-3.png%5C" alt="upload successful"></p><p>当然了，也从侧面反馈出<span style="color: #FF1744; font-weight: bold;">数据监控的不足以及内部沟通的不畅通</span>，后续我们在监控方面做了各个指标的加强，以及和业务部门沟通的及时性，其实数据部门老早都发现有这个问题了， 但是因为沟通的滞后性，导致问题发生半个月之后才发现问题。</p><p>虽然说从技术角度来看是一个很小的问题，其实就是实现的方式，然后场景的评估不到位，不过也反馈出来了很多问题，所以说发生事故不可怕，可怕的是事故反应的<span style="color: #FF1744; font-weight: bold;">时效性、主动性</span>。积极的对待事故，避免更多的事故，使系统更完善，个人和团队更好的提升，毕竟在事故下的成长可是书本上学不来的。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h5 id=&quot;数据丢失——记一次生产事故&quot;&gt;&lt;a href=&quot;#数据丢失——记一次生产事故&quot; class=&quot;headerlink&quot; title=&quot;数据丢失——记一次生产事故&quot;&gt;&lt;/a&gt;数据丢失——记一次生产事故&lt;/h5&gt;&lt;p&gt;很久没更新，因为最近人员流动大，导致工作量多了很多，其实一直都有考虑写些什么，这次聊聊以前遇到的事故吧。&lt;/p&gt;
+&lt;h5 id=&quot;过程&quot;&gt;&lt;a href=&quot;#过程&quot; class=&quot;headerlink&quot; title=&quot;过程&quot;&gt;&lt;/a&gt;过程&lt;/h5&gt;&lt;p&gt;聊聊俩年前发生的生产事故吧，虽然时间比较久远，不过也给我长了很多经验。当时业务处于扩张期，以前用户通讯录、短信、通话记录相关的数据都存储在mongo中，因为满足不了后续各种乱七八糟的海量运算的需求，所以在业务的压力下，要将这些数据落到HBase中去做一些复杂的业务运算，当时原有的改造前的业务场景模型如下：&lt;br&gt;&lt;img src=&quot;%5Cimages%5Cpasted-1.png%5C&quot; alt=&quot;upload successful&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>研发到leader感悟</title>
